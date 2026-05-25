@@ -3,6 +3,7 @@ langchain
 ipython
 langchain_openai
 langchain_community
+langchain_groq
 dotenv
 typing
 chromadb
