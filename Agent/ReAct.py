@@ -47,7 +47,8 @@ def model_call(state: AgentState) -> AgentState:
 def should_continue(state: AgentState):
     messages = state["messages"]
     last_message = messages[-1]
-    if not last_message.tool_calls: 
+    # If the last message is from the AI and has tool calls, go to tool_node
+    if isinstance(last_message, AIMessage) and hasattr(last_message, 'tool_calls') and last_message.tool_calls:
         return "tool"
     else:
         return "end"
